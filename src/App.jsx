@@ -7,6 +7,7 @@ export default function KartikPortfolio() {
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full backdrop-blur-xl bg-white/5 border-b border-white/10 z-50">
+
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
           <h1 className="text-2xl font-bold tracking-wide">
@@ -14,11 +15,31 @@ export default function KartikPortfolio() {
           </h1>
 
           <div className="hidden md:flex gap-8 text-sm text-gray-300">
-            <a href="#about" className="hover:text-white transition">About</a>
-            <a href="#skills" className="hover:text-white transition">Skills</a>
-            <a href="#experience" className="hover:text-white transition">Experience</a>
-            <a href="#projects" className="hover:text-white transition">Projects</a>
-            <a href="#contact" className="hover:text-white transition">Contact</a>
+
+            <a href="#about" className="hover:text-white transition">
+              About
+            </a>
+
+            <a href="#skills" className="hover:text-white transition">
+              Skills
+            </a>
+
+            <a href="#experience" className="hover:text-white transition">
+              Experience
+            </a>
+
+            <a href="#projects" className="hover:text-white transition">
+              Projects
+            </a>
+
+            <a href="#certifications" className="hover:text-white transition">
+              Certifications
+            </a>
+
+            <a href="#contact" className="hover:text-white transition">
+              Contact
+            </a>
+
           </div>
 
         </div>
@@ -29,14 +50,17 @@ export default function KartikPortfolio() {
 
         <div className="max-w-7xl w-full grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left Side */}
+          {/* Left */}
           <div>
 
             <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+
               Hi, I'm{" "}
+
               <span className="text-blue-400">
                 Kartik Sharma
               </span>
+
             </h1>
 
             <h2 className="text-2xl md:text-3xl text-gray-300 mb-6">
@@ -44,11 +68,13 @@ export default function KartikPortfolio() {
             </h2>
 
             <p className="text-gray-400 leading-relaxed max-w-xl mb-8 text-lg">
+
               I am a B.Tech CSE (IoT) student with hands-on experience in web
-              development and IoT-based projects. I have developed solutions
-              such as a lost-and-found portal and a water quality monitoring
-              system. Passionate about solving real-world problems using
-              technology and continuously improving my development skills.
+              development and IoT-based projects. Passionate about building
+              impactful digital solutions and continuously improving my
+              technical skills in web technologies, AI, cybersecurity,
+              databases, and IoT systems.
+
             </p>
 
             {/* Stats */}
@@ -58,6 +84,7 @@ export default function KartikPortfolio() {
                 <h3 className="text-3xl font-bold text-blue-400">
                   2+
                 </h3>
+
                 <p className="text-gray-400">
                   Projects
                 </p>
@@ -65,19 +92,21 @@ export default function KartikPortfolio() {
 
               <div>
                 <h3 className="text-3xl font-bold text-blue-400">
-                  1
+                  10+
                 </h3>
+
                 <p className="text-gray-400">
-                  Internship
+                  Certifications
                 </p>
               </div>
 
               <div>
                 <h3 className="text-3xl font-bold text-blue-400">
-                  IoT
+                  1
                 </h3>
+
                 <p className="text-gray-400">
-                  Enthusiast
+                  Internship
                 </p>
               </div>
 
@@ -110,9 +139,10 @@ export default function KartikPortfolio() {
               </a>
 
             </div>
+
           </div>
 
-          {/* Right Side Image */}
+          {/* Right Image */}
           <div className="flex justify-center">
 
             <div className="relative group">
@@ -126,9 +156,11 @@ export default function KartikPortfolio() {
               />
 
             </div>
+
           </div>
 
         </div>
+
       </section>
 
       {/* About */}
@@ -144,12 +176,17 @@ export default function KartikPortfolio() {
           </h2>
 
           <p className="text-gray-300 leading-relaxed text-lg">
+
             I am a quick learner, hardworking, and eager to gain practical
-            industry experience. My goal is to grow as a software engineer and
-            contribute to meaningful projects in web development and IoT.
+            industry experience. My interests include web development,
+            artificial intelligence, IoT systems, and modern software
+            technologies. Currently seeking opportunities to contribute,
+            learn, and grow as a developer.
+
           </p>
 
         </div>
+
       </section>
 
       {/* Skills */}
@@ -171,12 +208,12 @@ export default function KartikPortfolio() {
             "React.js",
             "PHP",
             "MySQL",
-            "C",
             "Java",
+            "C",
             "IoT",
-            "Sensors",
-            "Microcontrollers",
-            "Web Development",
+            "Cyber Security",
+            "AI/ML",
+            "Data Analytics",
           ].map((skill) => (
 
             <div
@@ -189,8 +226,11 @@ export default function KartikPortfolio() {
               </p>
 
             </div>
+
           ))}
+
         </div>
+
       </section>
 
       {/* Experience */}
@@ -224,12 +264,13 @@ export default function KartikPortfolio() {
             </li>
 
             <li>
-              • Collaborated with team members to deliver features on time.
+              • Collaborated with team members on practical development tasks.
             </li>
 
           </ul>
 
         </div>
+
       </section>
 
       {/* Projects */}
@@ -252,31 +293,12 @@ export default function KartikPortfolio() {
             </h3>
 
             <p className="text-gray-300 leading-relaxed mb-6">
-              Developed a full-stack lost and found portal using HTML, CSS,
-              JavaScript, PHP, and MySQL with authentication, item tracking,
-              and search filters.
+
+              Developed a centralized lost and found portal using HTML, CSS,
+              JavaScript, PHP, and MySQL with authentication and item tracking.
+
             </p>
 
-            <div className="flex flex-wrap gap-3">
-
-              {[
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "PHP",
-                "MySQL",
-              ].map((tech) => (
-
-                <span
-                  key={tech}
-                  className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm"
-                >
-                  {tech}
-                </span>
-
-              ))}
-
-            </div>
           </div>
 
           {/* Project 2 */}
@@ -287,33 +309,138 @@ export default function KartikPortfolio() {
             </h3>
 
             <p className="text-gray-300 leading-relaxed mb-6">
-              Designing an IoT-based system using sensors to monitor pH,
-              turbidity, and temperature in real time for efficient water
-              quality analysis.
+
+              Designing an IoT-based system using sensors for monitoring water
+              quality parameters such as pH, turbidity, and temperature.
+
             </p>
 
-            <div className="flex flex-wrap gap-3">
-
-              {[
-                "IoT",
-                "Sensors",
-                "Microcontrollers",
-                "Monitoring System",
-              ].map((tech) => (
-
-                <span
-                  key={tech}
-                  className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm"
-                >
-                  {tech}
-                </span>
-
-              ))}
-
-            </div>
           </div>
 
         </div>
+
+      </section>
+
+      {/* Certifications */}
+      <section
+        id="certifications"
+        className="max-w-6xl mx-auto px-6 py-24"
+      >
+
+        <h2 className="text-4xl font-bold mb-4">
+          Featured Certifications
+        </h2>
+
+        <p className="text-gray-400 mb-12 text-lg">
+          Industry-recognized certifications and technical achievements.
+        </p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {/* AI ML */}
+          <a
+            href="/certificates/ai-ml-java-oracle.pdf"
+            target="_blank"
+            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
+          >
+
+            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
+              AI & ML in Java
+            </h3>
+
+            <p className="text-blue-400 mb-4">
+              Oracle Academy
+            </p>
+
+          </a>
+
+          {/* PostgreSQL */}
+          <a
+            href="/certificates/postgresql-training-iitb.pdf"
+            target="_blank"
+            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
+          >
+
+            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
+              PostgreSQL Training
+            </h3>
+
+            <p className="text-blue-400 mb-4">
+              IIT Bombay
+            </p>
+
+          </a>
+
+          {/* Deloitte */}
+          <a
+            href="/certificates/deloitte-cyber-job-simulation.pdf"
+            target="_blank"
+            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
+          >
+
+            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
+              Cyber Job Simulation
+            </h3>
+
+            <p className="text-blue-400 mb-4">
+              Deloitte Forage
+            </p>
+
+          </a>
+
+          {/* IoT */}
+          <a
+            href="/certificates/iot-101-infosys.pdf"
+            target="_blank"
+            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
+          >
+
+            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
+              Internet of Things 101
+            </h3>
+
+            <p className="text-blue-400 mb-4">
+              Infosys Springboard
+            </p>
+
+          </a>
+
+          {/* Internship */}
+          <a
+            href="/certificates/web-development-internship-kistechno.jpeg"
+            target="_blank"
+            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
+          >
+
+            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
+              Web Development Internship
+            </h3>
+
+            <p className="text-blue-400 mb-4">
+              Kistechno Software
+            </p>
+
+          </a>
+
+          {/* SIH */}
+          <a
+            href="/certificates/smart-india-hackathon-2025.jpeg"
+            target="_blank"
+            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
+          >
+
+            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
+              Smart India Hackathon 2025
+            </h3>
+
+            <p className="text-blue-400 mb-4">
+              Ministry of Education
+            </p>
+
+          </a>
+
+        </div>
+
       </section>
 
       {/* Contact */}
@@ -346,10 +473,10 @@ export default function KartikPortfolio() {
             </span>
 
             <a
-              href="tel:+917073647846"
+              href="tel:+919602761165"
               className="hover:text-blue-400 transition"
             >
-              +91 7073647846
+              +91 9602761165
             </a>
 
             <span className="hidden md:block text-gray-600">
@@ -365,7 +492,9 @@ export default function KartikPortfolio() {
             </a>
 
           </div>
+
         </div>
+
       </section>
 
       {/* Footer */}
