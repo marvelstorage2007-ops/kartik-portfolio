@@ -38,12 +38,8 @@ export default function KartikPortfolio() {
 
         <div className="max-w-7xl w-full grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left */}
+          {/* Left Side */}
           <div>
-
-            <p className="uppercase tracking-[0.3em] text-blue-400 mb-4 text-sm">
-              Premium Student Portfolio
-            </p>
 
             <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
               Hi, I'm{" "}
@@ -63,6 +59,7 @@ export default function KartikPortfolio() {
               my technical knowledge step by step.
             </p>
 
+            {/* Buttons */}
             <div className="flex flex-wrap gap-4">
 
               <a
@@ -79,10 +76,26 @@ export default function KartikPortfolio() {
                 Contact Me
               </a>
 
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                className="px-7 py-3 rounded-2xl border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition font-medium"
+              >
+                Resume
+              </a>
+
+              <a
+                href="https://github.com/kartikcodes03"
+                target="_blank"
+                className="px-7 py-3 rounded-2xl border border-white/20 hover:bg-white/10 transition font-medium"
+              >
+                GitHub
+              </a>
+
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Right Side Image */}
           <div className="flex justify-center">
 
             <div className="relative group">
