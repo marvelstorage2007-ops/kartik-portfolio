@@ -14,26 +14,17 @@ export default function KartikPortfolio() {
           </h1>
 
           <div className="hidden md:flex gap-8 text-sm text-gray-300">
-            <a href="#about" className="hover:text-white transition">
-              About
-            </a>
-
-            <a href="#skills" className="hover:text-white transition">
-              Skills
-            </a>
-
-            <a href="#projects" className="hover:text-white transition">
-              Projects
-            </a>
-
-            <a href="#contact" className="hover:text-white transition">
-              Contact
-            </a>
+            <a href="#about" className="hover:text-white transition">About</a>
+            <a href="#skills" className="hover:text-white transition">Skills</a>
+            <a href="#experience" className="hover:text-white transition">Experience</a>
+            <a href="#projects" className="hover:text-white transition">Projects</a>
+            <a href="#contact" className="hover:text-white transition">Contact</a>
           </div>
+
         </div>
       </nav>
 
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-6 pt-24">
 
         <div className="max-w-7xl w-full grid lg:grid-cols-2 gap-16 items-center">
@@ -49,15 +40,48 @@ export default function KartikPortfolio() {
             </h1>
 
             <h2 className="text-2xl md:text-3xl text-gray-300 mb-6">
-              Computer Science (IoT) Student
+              B.Tech CSE (IoT) Student | Web Developer
             </h2>
 
             <p className="text-gray-400 leading-relaxed max-w-xl mb-8 text-lg">
-              I am a Computer Science (IoT) student with a keen interest in
-              technology and learning new skills. I am currently exploring
-              web development, programming, and IoT concepts while improving
-              my technical knowledge step by step.
+              I am a B.Tech CSE (IoT) student with hands-on experience in web
+              development and IoT-based projects. I have developed solutions
+              such as a lost-and-found portal and a water quality monitoring
+              system. Passionate about solving real-world problems using
+              technology and continuously improving my development skills.
             </p>
+
+            {/* Stats */}
+            <div className="flex gap-8 mb-8 flex-wrap">
+
+              <div>
+                <h3 className="text-3xl font-bold text-blue-400">
+                  2+
+                </h3>
+                <p className="text-gray-400">
+                  Projects
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-3xl font-bold text-blue-400">
+                  1
+                </h3>
+                <p className="text-gray-400">
+                  Internship
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-3xl font-bold text-blue-400">
+                  IoT
+                </h3>
+                <p className="text-gray-400">
+                  Enthusiast
+                </p>
+              </div>
+
+            </div>
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-4">
@@ -67,13 +91,6 @@ export default function KartikPortfolio() {
                 className="px-7 py-3 rounded-2xl bg-blue-500 hover:bg-blue-600 transition font-medium shadow-lg shadow-blue-500/20"
               >
                 View Projects
-              </a>
-
-              <a
-                href="#contact"
-                className="px-7 py-3 rounded-2xl border border-white/20 hover:bg-white/10 transition font-medium"
-              >
-                Contact Me
               </a>
 
               <a
@@ -110,6 +127,7 @@ export default function KartikPortfolio() {
 
             </div>
           </div>
+
         </div>
       </section>
 
@@ -126,10 +144,9 @@ export default function KartikPortfolio() {
           </h2>
 
           <p className="text-gray-300 leading-relaxed text-lg">
-            I am a quick learner, hardworking, and eager to gain real-world
-            experience in the software industry. My goal is to start my career
-            in a good company, grow as a software engineer, and contribute
-            to meaningful projects.
+            I am a quick learner, hardworking, and eager to gain practical
+            industry experience. My goal is to grow as a software engineer and
+            contribute to meaningful projects in web development and IoT.
           </p>
 
         </div>
@@ -145,16 +162,21 @@ export default function KartikPortfolio() {
           Skills
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
           {[
             "HTML",
             "CSS",
             "JavaScript",
-            "C/C++",
+            "React.js",
+            "PHP",
+            "MySQL",
+            "C",
+            "Java",
             "IoT",
-            "DBMS",
-            "Data Analytics",
+            "Sensors",
+            "Microcontrollers",
+            "Web Development",
           ].map((skill) => (
 
             <div
@@ -171,6 +193,45 @@ export default function KartikPortfolio() {
         </div>
       </section>
 
+      {/* Experience */}
+      <section
+        id="experience"
+        className="max-w-6xl mx-auto px-6 py-24"
+      >
+
+        <h2 className="text-4xl font-bold mb-12">
+          Experience
+        </h2>
+
+        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-10">
+
+          <h3 className="text-2xl font-bold text-blue-400 mb-2">
+            Web Development Intern
+          </h3>
+
+          <p className="text-gray-400 mb-6">
+            Kistechno Software Pvt. Ltd.
+          </p>
+
+          <ul className="space-y-4 text-gray-300">
+
+            <li>
+              • Built responsive web pages using HTML, CSS, and JavaScript.
+            </li>
+
+            <li>
+              • Improved UI consistency across multiple browsers.
+            </li>
+
+            <li>
+              • Collaborated with team members to deliver features on time.
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
       {/* Projects */}
       <section
         id="projects"
@@ -178,22 +239,32 @@ export default function KartikPortfolio() {
       >
 
         <h2 className="text-4xl font-bold mb-12">
-          Featured Project
+          Projects
         </h2>
 
-        <div className="group relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden hover:border-blue-500/40 transition duration-500">
+        <div className="grid md:grid-cols-2 gap-8">
 
-          <div className="relative p-10 md:p-14">
+          {/* Project 1 */}
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 transition duration-500">
 
-            <div className="flex flex-wrap gap-3 mb-6">
+            <h3 className="text-2xl font-bold mb-4">
+              Tracemate – Lost & Found Portal
+            </h3>
+
+            <p className="text-gray-300 leading-relaxed mb-6">
+              Developed a full-stack lost and found portal using HTML, CSS,
+              JavaScript, PHP, and MySQL with authentication, item tracking,
+              and search filters.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
 
               {[
                 "HTML",
                 "CSS",
                 "JavaScript",
-                "React.js",
-                "Node.js",
-                "MongoDB",
+                "PHP",
+                "MySQL",
               ].map((tech) => (
 
                 <span
@@ -204,20 +275,44 @@ export default function KartikPortfolio() {
                 </span>
 
               ))}
-            </div>
 
-            <h3 className="text-3xl font-bold mb-4">
-              Lost & Found Portal
+            </div>
+          </div>
+
+          {/* Project 2 */}
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 transition duration-500">
+
+            <h3 className="text-2xl font-bold mb-4">
+              Water Quality Checker – IoT Monitoring System
             </h3>
 
-            <p className="text-gray-300 leading-relaxed text-lg max-w-4xl">
-              A web-based platform where users can report lost items or post
-              found items. Users can search for missing belongings, upload
-              item details and images, and contact the person who posted the
-              item to help recover lost belongings easily.
+            <p className="text-gray-300 leading-relaxed mb-6">
+              Designing an IoT-based system using sensors to monitor pH,
+              turbidity, and temperature in real time for efficient water
+              quality analysis.
             </p>
 
+            <div className="flex flex-wrap gap-3">
+
+              {[
+                "IoT",
+                "Sensors",
+                "Microcontrollers",
+                "Monitoring System",
+              ].map((tech) => (
+
+                <span
+                  key={tech}
+                  className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm"
+                >
+                  {tech}
+                </span>
+
+              ))}
+
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -234,7 +329,7 @@ export default function KartikPortfolio() {
           </h2>
 
           <p className="text-gray-400 mb-10 text-lg">
-            Open to opportunities, collaborations, and learning experiences.
+            Open to internships, collaborations, and opportunities.
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-lg">
@@ -251,10 +346,10 @@ export default function KartikPortfolio() {
             </span>
 
             <a
-              href="tel:+919602761165"
+              href="tel:+917073647846"
               className="hover:text-blue-400 transition"
             >
-              +91 9602761165
+              +91 7073647846
             </a>
 
             <span className="hidden md:block text-gray-600">
