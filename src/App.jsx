@@ -1,12 +1,91 @@
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
+
 export default function KartikPortfolio() {
+
+  const [loading, setLoading] = useState(true);
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  useEffect(() => {
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2200);
+
+    return () => clearTimeout(timer);
+
+  }, []);
+
+  useEffect(() => {
+
+    const mouseMove = (e) => {
+
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+
+    };
+
+    window.addEventListener("mousemove", mouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", mouseMove);
+    };
+
+  }, []);
+
+  if (loading) {
+
+    return (
+
+      <div className="h-screen bg-black flex items-center justify-center overflow-hidden">
+
+        <div className="text-center">
+
+          <h1 className="text-6xl md:text-7xl font-bold text-white tracking-[0.3em] mb-6">
+            KARTIK
+          </h1>
+
+          <div className="w-52 h-1 bg-white/10 rounded-full overflow-hidden mx-auto">
+
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 2 }}
+              className="h-full bg-blue-500"
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden scroll-smooth">
+
+    <div className="min-h-screen bg-black text-white overflow-x-hidden scroll-smooth relative">
+
+      {/* Mouse Glow */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(59,130,246,0.15), transparent 80%)`,
+        }}
+      />
 
       {/* Background */}
       <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.15),transparent_40%),radial-gradient(circle_at_bottom,rgba(168,85,247,0.12),transparent_40%)]" />
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full backdrop-blur-xl bg-white/5 border-b border-white/10 z-50">
+      <nav className="fixed top-0 left-0 w-full backdrop-blur-xl bg-black/30 border-b border-white/10 z-50">
 
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -43,12 +122,18 @@ export default function KartikPortfolio() {
           </div>
 
         </div>
+
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6 pt-24">
+      <section className="min-h-screen flex items-center justify-center px-6 pt-24 relative z-10">
 
-        <div className="max-w-7xl w-full grid lg:grid-cols-2 gap-16 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-7xl w-full grid lg:grid-cols-2 gap-16 items-center"
+        >
 
           {/* Left */}
           <div>
@@ -69,11 +154,9 @@ export default function KartikPortfolio() {
 
             <p className="text-gray-400 leading-relaxed max-w-xl mb-8 text-lg">
 
-              I am a B.Tech CSE (IoT) student with hands-on experience in web
-              development and IoT-based projects. Passionate about building
-              impactful digital solutions and continuously improving my
-              technical skills in web technologies, AI, cybersecurity,
-              databases, and IoT systems.
+              Passionate about building modern digital experiences,
+              IoT systems, AI-powered solutions, and real-world
+              software projects.
 
             </p>
 
@@ -145,28 +228,41 @@ export default function KartikPortfolio() {
           {/* Right Image */}
           <div className="flex justify-center">
 
-            <div className="relative group">
+            <Tilt
+              glareEnable={true}
+              glareMaxOpacity={0.3}
+              scale={1.05}
+              transitionSpeed={2000}
+            >
 
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-[2rem] blur-xl opacity-40 group-hover:opacity-70 transition duration-500"></div>
+              <div className="relative group">
 
-              <img
-                src="/kartik.jpg"
-                alt="Kartik Sharma"
-                className="relative w-[350px] md:w-[430px] rounded-[2rem] border border-white/10 object-cover shadow-2xl"
-              />
+                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-[2rem] blur-xl opacity-40 group-hover:opacity-70 transition duration-500"></div>
 
-            </div>
+                <img
+                  src="/kartik.jpg"
+                  alt="Kartik Sharma"
+                  className="relative w-[350px] md:w-[430px] rounded-[2rem] border border-white/10 object-cover shadow-2xl"
+                />
+
+              </div>
+
+            </Tilt>
 
           </div>
 
-        </div>
+        </motion.div>
 
       </section>
 
       {/* About */}
-      <section
+      <motion.section
         id="about"
-        className="max-w-6xl mx-auto px-6 py-24"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto px-6 py-24 relative z-10"
       >
 
         <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-10 md:p-14">
@@ -177,22 +273,26 @@ export default function KartikPortfolio() {
 
           <p className="text-gray-300 leading-relaxed text-lg">
 
-            I am a quick learner, hardworking, and eager to gain practical
-            industry experience. My interests include web development,
-            artificial intelligence, IoT systems, and modern software
-            technologies. Currently seeking opportunities to contribute,
-            learn, and grow as a developer.
+            I am a quick learner and passionate developer with
+            interests in Web Development, Artificial Intelligence,
+            Cyber Security, and IoT systems. I enjoy building
+            practical projects and continuously improving my
+            technical skills.
 
           </p>
 
         </div>
 
-      </section>
+      </motion.section>
 
       {/* Skills */}
-      <section
+      <motion.section
         id="skills"
-        className="max-w-6xl mx-auto px-6 py-24"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto px-6 py-24 relative z-10"
       >
 
         <h2 className="text-4xl font-bold mb-12">
@@ -209,74 +309,92 @@ export default function KartikPortfolio() {
             "PHP",
             "MySQL",
             "Java",
-            "C",
             "IoT",
             "Cyber Security",
             "AI/ML",
             "Data Analytics",
+            "DBMS",
           ].map((skill) => (
 
-            <div
+            <Tilt
               key={skill}
-              className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-6 text-center hover:-translate-y-2 hover:border-blue-500/40 transition duration-300"
+              scale={1.03}
+              tiltMaxAngleX={12}
+              tiltMaxAngleY={12}
             >
 
-              <p className="font-semibold text-lg">
-                {skill}
-              </p>
+              <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-6 text-center hover:border-blue-500/40 transition duration-300">
 
-            </div>
+                <p className="font-semibold text-lg">
+                  {skill}
+                </p>
+
+              </div>
+
+            </Tilt>
 
           ))}
 
         </div>
 
-      </section>
+      </motion.section>
 
       {/* Experience */}
-      <section
+      <motion.section
         id="experience"
-        className="max-w-6xl mx-auto px-6 py-24"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto px-6 py-24 relative z-10"
       >
 
         <h2 className="text-4xl font-bold mb-12">
           Experience
         </h2>
 
-        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-10">
+        <Tilt scale={1.01}>
 
-          <h3 className="text-2xl font-bold text-blue-400 mb-2">
-            Web Development Intern
-          </h3>
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-10">
 
-          <p className="text-gray-400 mb-6">
-            Kistechno Software Pvt. Ltd.
-          </p>
+            <h3 className="text-2xl font-bold text-blue-400 mb-2">
+              Web Development Intern
+            </h3>
 
-          <ul className="space-y-4 text-gray-300">
+            <p className="text-gray-400 mb-6">
+              Kistechno Software Pvt. Ltd.
+            </p>
 
-            <li>
-              • Built responsive web pages using HTML, CSS, and JavaScript.
-            </li>
+            <ul className="space-y-4 text-gray-300">
 
-            <li>
-              • Improved UI consistency across multiple browsers.
-            </li>
+              <li>
+                • Built responsive web pages using HTML, CSS, and JavaScript.
+              </li>
 
-            <li>
-              • Collaborated with team members on practical development tasks.
-            </li>
+              <li>
+                • Worked on frontend UI and responsive layouts.
+              </li>
 
-          </ul>
+              <li>
+                • Gained practical industry experience in web development.
+              </li>
 
-        </div>
+            </ul>
 
-      </section>
+          </div>
+
+        </Tilt>
+
+      </motion.section>
 
       {/* Projects */}
-      <section
+      <motion.section
         id="projects"
-        className="max-w-6xl mx-auto px-6 py-24"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto px-6 py-24 relative z-10"
       >
 
         <h2 className="text-4xl font-bold mb-12">
@@ -285,168 +403,142 @@ export default function KartikPortfolio() {
 
         <div className="grid md:grid-cols-2 gap-8">
 
-          {/* Project 1 */}
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 transition duration-500">
+          <Tilt scale={1.02}>
 
-            <h3 className="text-2xl font-bold mb-4">
-              Tracemate – Lost & Found Portal
-            </h3>
+            <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 transition duration-500">
 
-            <p className="text-gray-300 leading-relaxed mb-6">
+              <h3 className="text-2xl font-bold mb-4">
+                Tracemate – Lost & Found Portal
+              </h3>
 
-              Developed a centralized lost and found portal using HTML, CSS,
-              JavaScript, PHP, and MySQL with authentication and item tracking.
+              <p className="text-gray-300 leading-relaxed mb-6">
 
-            </p>
+                Developed a centralized lost and found platform
+                using HTML, CSS, JavaScript, PHP, and MySQL.
 
-          </div>
+              </p>
 
-          {/* Project 2 */}
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 transition duration-500">
+            </div>
 
-            <h3 className="text-2xl font-bold mb-4">
-              Water Quality Checker – IoT Monitoring System
-            </h3>
+          </Tilt>
 
-            <p className="text-gray-300 leading-relaxed mb-6">
+          <Tilt scale={1.02}>
 
-              Designing an IoT-based system using sensors for monitoring water
-              quality parameters such as pH, turbidity, and temperature.
+            <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 transition duration-500">
 
-            </p>
+              <h3 className="text-2xl font-bold mb-4">
+                Water Quality Checker – IoT System
+              </h3>
 
-          </div>
+              <p className="text-gray-300 leading-relaxed mb-6">
+
+                IoT-based monitoring system for checking pH,
+                turbidity, and temperature using sensors.
+
+              </p>
+
+            </div>
+
+          </Tilt>
 
         </div>
 
-      </section>
+      </motion.section>
 
       {/* Certifications */}
-      <section
+      <motion.section
         id="certifications"
-        className="max-w-6xl mx-auto px-6 py-24"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto px-6 py-24 relative z-10"
       >
 
-        <h2 className="text-4xl font-bold mb-4">
+        <h2 className="text-4xl font-bold mb-12">
           Featured Certifications
         </h2>
 
-        <p className="text-gray-400 mb-12 text-lg">
-          Industry-recognized certifications and technical achievements.
-        </p>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          {/* AI ML */}
-          <a
-            href="/certificates/ai-ml-java-oracle.pdf"
-            target="_blank"
-            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
-          >
+          {[
+            {
+              title: "AI & ML in Java",
+              org: "Oracle Academy",
+              file: "ai-ml-java-oracle.pdf",
+            },
 
-            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
-              AI & ML in Java
-            </h3>
+            {
+              title: "PostgreSQL Training",
+              org: "IIT Bombay",
+              file: "postgresql-training-iitb.pdf",
+            },
 
-            <p className="text-blue-400 mb-4">
-              Oracle Academy
-            </p>
+            {
+              title: "Cyber Job Simulation",
+              org: "Deloitte Forage",
+              file: "deloitte-cyber-job-simulation.pdf",
+            },
 
-          </a>
+            {
+              title: "Internet of Things 101",
+              org: "Infosys Springboard",
+              file: "iot-101-infosys.pdf",
+            },
 
-          {/* PostgreSQL */}
-          <a
-            href="/certificates/postgresql-training-iitb.pdf"
-            target="_blank"
-            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
-          >
+            {
+              title: "Web Development Internship",
+              org: "Kistechno Software",
+              file: "web-development-internship-kistechno.jpeg",
+            },
 
-            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
-              PostgreSQL Training
-            </h3>
+            {
+              title: "Smart India Hackathon",
+              org: "Ministry of Education",
+              file: "smart-india-hackathon-2025.jpeg",
+            },
 
-            <p className="text-blue-400 mb-4">
-              IIT Bombay
-            </p>
+          ].map((cert) => (
 
-          </a>
+            <Tilt
+              key={cert.title}
+              scale={1.03}
+            >
 
-          {/* Deloitte */}
-          <a
-            href="/certificates/deloitte-cyber-job-simulation.pdf"
-            target="_blank"
-            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
-          >
+              <a
+                href={`/certificates/${cert.file}`}
+                target="_blank"
+                className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500 block"
+              >
 
-            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
-              Cyber Job Simulation
-            </h3>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
 
-            <p className="text-blue-400 mb-4">
-              Deloitte Forage
-            </p>
+                  {cert.title}
 
-          </a>
+                </h3>
 
-          {/* IoT */}
-          <a
-            href="/certificates/iot-101-infosys.pdf"
-            target="_blank"
-            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
-          >
+                <p className="text-blue-400">
+                  {cert.org}
+                </p>
 
-            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
-              Internet of Things 101
-            </h3>
+              </a>
 
-            <p className="text-blue-400 mb-4">
-              Infosys Springboard
-            </p>
+            </Tilt>
 
-          </a>
-
-          {/* Internship */}
-          <a
-            href="/certificates/web-development-internship-kistechno.jpeg"
-            target="_blank"
-            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
-          >
-
-            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
-              Web Development Internship
-            </h3>
-
-            <p className="text-blue-400 mb-4">
-              Kistechno Software
-            </p>
-
-          </a>
-
-          {/* SIH */}
-          <a
-            href="/certificates/smart-india-hackathon-2025.jpeg"
-            target="_blank"
-            className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:border-blue-500/40 hover:-translate-y-2 transition duration-500"
-          >
-
-            <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">
-              Smart India Hackathon 2025
-            </h3>
-
-            <p className="text-blue-400 mb-4">
-              Ministry of Education
-            </p>
-
-          </a>
+          ))}
 
         </div>
 
-      </section>
+      </motion.section>
 
       {/* Contact */}
-      <section
+      <motion.section
         id="contact"
-        className="max-w-6xl mx-auto px-6 py-24"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto px-6 py-24 relative z-10"
       >
 
         <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-10 md:p-14 text-center">
@@ -495,15 +587,16 @@ export default function KartikPortfolio() {
 
         </div>
 
-      </section>
+      </motion.section>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 py-8 text-center text-gray-500 text-sm">
+      <footer className="border-t border-white/10 py-8 text-center text-gray-500 text-sm relative z-10">
 
         © 2026 Kartik Sharma. All rights reserved.
 
       </footer>
 
     </div>
+
   );
 }
